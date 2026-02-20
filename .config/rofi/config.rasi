@@ -16,7 +16,7 @@ configuration {
 			
     border-color: #7555FF;
    	text-color: #A290F1;
-    font: "Terminess Nerd Font Bold 36";
+    font: "Terminess Nerd Font Bold 20";
 	opacity: 0.3;
 }
  
@@ -30,7 +30,7 @@ configuration {
  
 #mainbox {
     children: [inputbar, listview];
-    spacing: 10px;
+    spacing: 0px;
     padding: 7px 0;
 }
  

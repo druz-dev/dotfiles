@@ -26,3 +26,4 @@ set wildmenu        "Enable autocompletion when pressing tab in command mode
 set wildmode=list:longest "Behave like bash completion
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.gif "Hide these files 
 nnoremap <esc><esc> :noh<return>
+
