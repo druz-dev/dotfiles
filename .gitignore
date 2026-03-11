@@ -1,1 +1,8 @@
 .config/nvim/*.json
+fisher.fish
+nvm.fish
+uv.env.fish
+_nvm_*
+fish_plugins
+fish_user_key_bindings.fish
+lazy-lock.json
