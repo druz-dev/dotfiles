@@ -1,64 +1,54 @@
 set $mod Mod4
-set $wsz "Z"
-set $wsx "X"
-set $wsc "C"
-set $wsa "A"
-set $wsy "Y"
-set $wsu "U"
-set $wsi "I"
-set $wso "O"
-set $wsp "P"
 
+bindsym $mod+Z workspace Z
+bindsym $mod+X workspace X
+bindsym $mod+C workspace C
+bindsym $mod+Y workspace Y
+bindsym $mod+U workspace U
+bindsym $mod+I workspace I
+bindsym $mod+O workspace O
+bindsym $mod+P workspace P
 
-set $wszk "Z"
-set $wsxk "X"
-set $wsck "C"
-set $wsak "A"
-set $wsyk "Y"
-set $wsuk "U"
-set $wsik "I"
-set $wsok "O"
-set $wspk "P"
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 0
 
+bindsym $mod+Shift+Z move container to workspace Z
+bindsym $mod+Shift+X move container to workspace X
+bindsym $mod+Shift+C move container to workspace C
+bindsym $mod+Shift+Y move container to workspace Y
+bindsym $mod+Shift+U move container to workspace U
+bindsym $mod+Shift+I move container to workspace I
+bindsym $mod+Shift+O move container to workspace O
+bindsym $mod+Shift+P move container to workspace P
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 0
 
-set $ws11 "1"
-set $ws12 "2"
-set $ws13 "3"
-set $ws14 "4"
-set $ws15 "5"
-set $ws16 "6"
+workspace U output primary
+workspace Y output primary
+workspace I output primary
+workspace O output primary
+workspace P output primary
 
-bindsym $mod+$wszk	workspace $wsz
-bindsym $mod+$wsxk	workspace $wsx
-bindsym $mod+$wsck   workspace $wsc
-bindsym $mod+$wsak   workspace $wsa
-bindsym $mod+$wsyk   workspace $wsy
-bindsym $mod+$wsuk   workspace $wsu
-bindsym $mod+$wsik	workspace $wsi
-bindsym $mod+$wsok	workspace $wso
-bindsym $mod+$wspk	workspace $wsp
-bindsym $mod+$ws11  workspace number $ws11
-bindsym $mod+$ws12  workspace number $ws12
-bindsym $mod+$ws13  workspace number $ws13
-bindsym $mod+$ws14  workspace number $ws14
-bindsym $mod+$ws15	workspace number $ws15
-bindsym $mod+$ws16	workspace number $ws16
+#workspace Z output DP-1-5-5
+#workspace X output DP-1-5-5
+#workspace C output DP-1-5-5
 
-bindsym $mod+Shift+$wszk move container to workspace $wsz
-bindsym $mod+Shift+$wsxk move container to workspace $wsx
-bindsym $mod+Shift+$wsck move container to workspace $wsc
-bindsym $mod+Shift+$wsak move container to workspace $wsa
-bindsym $mod+Shift+$wsyk move container to workspace $wsy
-bindsym $mod+Shift+$wsuk move container to workspace $wsu
-bindsym $mod+Shift+$wsik move container to workspace $wsi
-bindsym $mod+Shift+$wsok move container to workspace $wso
-bindsym $mod+Shift+$wspk move container to workspace $wsp
-bindsym $mod+Shift+$ws11 move container to workspace number $ws11
-bindsym $mod+Shift+$ws12 move container to workspace number $ws12
-bindsym $mod+Shift+$ws13 move container to workspace number $ws13
-bindsym $mod+Shift+$ws14 move container to workspace number $ws14
-bindsym $mod+Shift+$ws15 move container to workspace number $ws15
-bindsym $mod+Shift+$ws16 move container to workspace number $ws16
 
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="Microsoft Teams Notification"] sticky enable

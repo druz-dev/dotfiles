@@ -1,6 +1,7 @@
 # Ollie's config
 
 #i3 config file (v4)
+#sudo mount -o domain=APPEAR,username=jhe,vers=2.0 -t cifs //storage.appear.net/nightly /mnt/nightly
 
 # Colors, borders, gaps, corners and bar
 include style
@@ -9,7 +10,93 @@ include style
 include controls	
 
 # Workspace names and assignments
-include workspace
+set $mod Mod4
 
-# Launch applications on boot	
-include startup
+bindsym $mod+Z workspace Z
+bindsym $mod+X workspace X
+bindsym $mod+C workspace C
+bindsym $mod+Y workspace Y
+bindsym $mod+U workspace U
+bindsym $mod+I workspace I
+bindsym $mod+O workspace O
+bindsym $mod+P workspace P
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 0
+
+bindsym $mod+Shift+Z move container to workspace Z
+bindsym $mod+Shift+X move container to workspace X
+bindsym $mod+Shift+C move container to workspace C
+bindsym $mod+Shift+Y move container to workspace Y
+bindsym $mod+Shift+U move container to workspace U
+bindsym $mod+Shift+I move container to workspace I
+bindsym $mod+Shift+O move container to workspace O
+bindsym $mod+Shift+P move container to workspace P
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 0
+
+workspace U output primary
+workspace I output primary
+workspace O output primary
+workspace Y output primary
+workspace P output primary
+
+#workspace Z output DP-1-5-5
+#workspace X output DP-1-5-5
+#workspace C output DP-1-5-5
+
+for_window [title="Microsoft Teams Notification"] floating enable
+for_window [title="Microsoft Teams Notification"] sticky enable
+for_window [title="feh"] floating enable
+for_window [title="SFML"] floating enable
+
+for_window [class="Zathura"] fullscreen enable
+
+
+
+## STARTUP
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+exec --no-startup-id redshift -t 6500:2500
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id polybar
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
+# exec --no-startup-id firefox outlook.office.com app.clickup.com
+
+
+exec_always --no-startup-id ~/.screenlayout/newdual.sh
+# exec_always --no-startup-id autorandr -c # Not working on ubuntu 24.04
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.png
+
+# exec --no-startup-id tmuxinator hip
+# exec --no-startup-id tmuxinator xger
+# exec --no-startup-id tmuxinator firewall
+# exec --no-startup-id tmuxinator firewall-gui
+# exec --no-startup-id tmuxinator firewall-idcl
+# exec --no-startup-id tmuxinator rhubarb
+#
+# exec --no-startup-id tmuxinator sdi
+# exec --no-startup-id tmuxinator sdi-gui
+# exec --no-startup-id tmuxinator sdi-idcl
+
+
+# exec --no-startup-id i3-msg "workspace Z; exec firefox app.clickup.com outlook.office.com"
+# exec --no-startup-id i3-msg "workspace I; exec kitty --hold tmux attach"
+# exec --no-startup-id i3-msg "workspace U; exec firefox"
+# exec --no-startup-id i3-msg "workspace O; exec kitty --hold opencode"
+# exec --no-startup-id i3-msg "workspace P; exec spotify"
