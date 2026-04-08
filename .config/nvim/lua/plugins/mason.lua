@@ -1,14 +1,10 @@
--- default install tools
 return {
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "flake8",
-      },
-    },
-  },
+	{
+		"mason-org/mason.nvim",
+		opts = {
+			ui = {
+				check_outdated_packages_on_open = false,
+			},
+		},
+	},
 }
