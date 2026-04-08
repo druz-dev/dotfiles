@@ -1,9 +1,9 @@
-
-## Borders
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 gaps outer 0
-gaps inner 10
+gaps inner 0
 #border_radius 2
+#smart_borders on
+smart_gaps on
 
 ## Font
 font pango:TerminessTTF Nerd Font Mono Bold 14
@@ -12,7 +12,8 @@ font pango:TerminessTTF Nerd Font Mono Bold 14
 set $x	#FF0000
 set $urgent #FF8000
 set $focus	#7555FF
-set $ufocus	#171b33
+set $ufocus	#171b3366
+# set $ufocus	#00000022
 
 client.focused			$x $x $x $focus  $focus
 client.focused_inactive	$x $x $x $ufocus $ufocus
@@ -24,20 +25,20 @@ set $it #443883
 set $t  #7555FF
 
 
-#bar {
-#	i3bar_command i3bar --transparency
-#	font pango: Terminess Nerd Font Mono Bold 16
-#	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#	tray_output none
-#	position top
-#	#mode hide
-#	padding 0px 12px 0px 12px
-#	colors {
-#		background $bg
-#		separator  $bg
-#		focused_workspace $t $t $bg
-#		active_workspace  $bg $bg $t
-#		inactive_workspace $bg $bg $t
-#	}
-#	
-#}
+# bar {
+# 	i3bar_command i3bar --transparency
+# 	font pango: Terminess Nerd Font Mono Bold 16
+# 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+# 	tray_output none
+# 	position top
+# 	#mode hide
+# 	padding 0px 12px 0px 12px
+# 	colors {
+# 		background $bg
+# 		separator  $bg
+# 		focused_workspace $t $t $bg
+# 		active_workspace  $bg $bg $t
+# 		inactive_workspace $bg $bg $t
+# 	}
+#
+# }
