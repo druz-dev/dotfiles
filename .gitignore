@@ -6,3 +6,5 @@ _nvm_*
 fish_plugins
 fish_user_key_bindings.fish
 lazy-lock.json
+/.config/fish/fish_variables
+/.config/nvim/lazy-lock.json
