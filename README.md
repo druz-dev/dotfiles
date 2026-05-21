@@ -3,6 +3,7 @@
 Enjoy my dotfiles. I have mainly used i3wm, but also have configs for both sway and Hyprland that is really similar in style.
 My vim config is an extension of the LazyVim distro by folke, mostly just disabling som stuff and making it a bit prettier :)
 
+Worth checking out: tmux config, fish config, hyprland config, and waybar.
 
 ## Screenshot (i3wm)
 ![image](https://github.com/user-attachments/assets/9c34434a-a9fb-4629-adda-58286594451a)
