@@ -74,7 +74,7 @@ for_window [class="Zathura"] fullscreen enable
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift -t 6500:2500
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
-exec --no-startup-id polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 # exec --no-startup-id firefox outlook.office.com app.clickup.com
 
