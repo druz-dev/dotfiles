@@ -8,3 +8,6 @@ fish_user_key_bindings.fish
 lazy-lock.json
 /.config/fish/fish_variables
 /.config/nvim/lazy-lock.json
+
+# Local secrets (tokens/keys) — never commit
+.config/fish/conf.d/secrets.fish

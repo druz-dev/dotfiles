@@ -13,6 +13,11 @@ if status is-interactive
     set -x EDITOR nvim
     set -x VISUAL nvim
 
+    set -e ANTHROPIC_BASE_URL
+    set -e ANTHROPIC_AUTH_TOKEN
+    set -e ANTHROPIC_MODEL
+    # GITLAB_TOKEN is set in the gitignored conf.d/secrets.fish
+    set -x GITLAB_HOST "https://gitlab.appear.net"
 
     eval (ssh-agent -c)
     set -x SSH_AUTH_SOCK /run/user/1001/keyring/ssh
@@ -113,8 +118,13 @@ zoxide init fish | source
 # opencode
 fish_add_path /home/ota/.opencode/bin
 
-# Auto-launch Hyprland on TTY1
+# Auto-launch WM on TTY1 (sentinel ~/.use-i3 selects i3; remove it to go back to Hyprland)
 if status is-login; and test -z "$DISPLAY" -a -z "$WAYLAND_DISPLAY" -a "$XDG_VTNR" = 1
-    set -x XDG_CURRENT_DESKTOP Hyprland
-    exec start-hyprland
+    if test -e ~/.use-i3
+        set -x XDG_CURRENT_DESKTOP i3
+        exec startx
+    else
+        set -x XDG_CURRENT_DESKTOP Hyprland
+        exec start-hyprland
+    end
 end
