@@ -24,11 +24,9 @@ function dev -d "Open a tmux session with cli, nvim, and claude in the given dir
 
     tmux new-session -d -s "$name" -c "$dir" -n cli
     tmux new-window -t "$name" -c "$dir" -n nvim
-    tmux send-keys -t "$name:nvim" "nvim" Enter
+    tmux send-keys -t "$name:nvim" nvim Enter
     tmux new-window -t "$name" -c "$dir" -n claude
-    tmux send-keys -t "$name:claude" "claude" Enter
-    tmux new-window -t "$name" -c "$dir" -n git
-    tmux send-keys -t "$name:git" "lazygit" Enter
+    tmux send-keys -t "$name:claude" claude Enter
     tmux select-window -t "$name:cli"
     tmux attach-session -t "$name"
 end
