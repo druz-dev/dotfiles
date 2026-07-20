@@ -1,0 +1,120 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 22,
+  "spacing": 4,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/slack",
+    "custom/hyprsunset",
+    "backlight",
+    "pulseaudio",
+    "battery"
+  ],
+  "custom/slack": {
+    "exec": "cat $XDG_RUNTIME_DIR/waybar-slack.json 2>/dev/null || echo '{\"text\":\"\"}'",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "/home/ota/.config/waybar/slack-status.py activate"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "sort-by": "id",
+    "format": "{name}"
+  },
+  "clock": {
+    "format": "{:%H:%M %d/%m}"
+  },
+  "custom/hyprsunset": {
+    "exec": "~/.config/waybar/hyprsunset.sh status",
+    "return-type": "json",
+    "interval": 5,
+    "exec-on-event": true,
+    "on-scroll-up": "~/.config/waybar/hyprsunset.sh warmer",
+    "on-scroll-down": "~/.config/waybar/hyprsunset.sh cooler"
+  },
+  "backlight": {
+    "format": "{icon}",
+    "on-scroll-up": "brightnessctl s --min-value=1 --exponent=4 5%+",
+    "on-scroll-down": "brightnessctl s --min-value=1 --exponent=4 5%-",
+    "scroll-step": 0,
+    "format-icons": [
+      "<span foreground='#555ea5'>||||||||||</span>",
+      "<span foreground='#A290F1'>|</span><span foreground='#555ea5'>|||||||||</span>",
+      "<span foreground='#A290F1'>||</span><span foreground='#555ea5'>||||||||</span>",
+      "<span foreground='#A290F1'>|||</span><span foreground='#555ea5'>|||||||</span>",
+      "<span foreground='#A290F1'>||||</span><span foreground='#555ea5'>||||||</span>",
+      "<span foreground='#A290F1'>|||||</span><span foreground='#555ea5'>|||||</span>",
+      "<span foreground='#A290F1'>||||||</span><span foreground='#555ea5'>||||</span>",
+      "<span foreground='#A290F1'>|||||||</span><span foreground='#555ea5'>|||</span>",
+      "<span foreground='#A290F1'>||||||||</span><span foreground='#555ea5'>||</span>",
+      "<span foreground='#A290F1'>|||||||||</span><span foreground='#555ea5'>|</span>",
+      "<span foreground='#A290F1'>||||||||||</span>"
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "<span foreground='#FF0033'>||||||||||</span>",
+    "format-icons": {
+      "default": [
+        "<span foreground='#555ea5'>||||||||||</span>",
+        "<span foreground='#A290F1'>|</span><span foreground='#555ea5'>|||||||||</span>",
+        "<span foreground='#A290F1'>||</span><span foreground='#555ea5'>||||||||</span>",
+        "<span foreground='#A290F1'>|||</span><span foreground='#555ea5'>|||||||</span>",
+        "<span foreground='#A290F1'>||||</span><span foreground='#555ea5'>||||||</span>",
+        "<span foreground='#A290F1'>|||||</span><span foreground='#555ea5'>|||||</span>",
+        "<span foreground='#A290F1'>||||||</span><span foreground='#555ea5'>||||</span>",
+        "<span foreground='#A290F1'>|||||||</span><span foreground='#555ea5'>|||</span>",
+        "<span foreground='#A290F1'>||||||||</span><span foreground='#555ea5'>||</span>",
+        "<span foreground='#A290F1'>|||||||||</span><span foreground='#555ea5'>|</span>",
+        "<span foreground='#A290F1'>||||||||||</span>"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 0
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-charging": "{icon} ⚡",
+    "format-icons": {
+      "default": [
+        "<span foreground='#FF0033'>|</span><span foreground='#555ea5'>|||||||||</span>",
+        "<span foreground='#FF0033'>|</span><span foreground='#555ea5'>|||||||||</span>",
+        "<span foreground='#FF3318'>||</span><span foreground='#555ea5'>||||||||</span>",
+        "<span foreground='#FF6600'>|||</span><span foreground='#555ea5'>|||||||</span>",
+        "<span foreground='#FF9900'>||||</span><span foreground='#555ea5'>||||||</span>",
+        "<span foreground='#FFCF00'>|||||</span><span foreground='#555ea5'>|||||</span>",
+        "<span foreground='#CCDD11'>||||||</span><span foreground='#555ea5'>||||</span>",
+        "<span foreground='#88DD22'>|||||||</span><span foreground='#555ea5'>|||</span>",
+        "<span foreground='#55CC33'>||||||||</span><span foreground='#555ea5'>||</span>",
+        "<span foreground='#33CC55'>|||||||||</span><span foreground='#555ea5'>|</span>",
+        "<span foreground='#23CE6B'>||||||||||</span>"
+      ],
+      "charging": [
+        "<span foreground='#23CE6B'>|</span><span foreground='#555ea5'>|||||||||</span>",
+        "<span foreground='#23CE6B'>|</span><span foreground='#555ea5'>|||||||||</span>",
+        "<span foreground='#23CE6B'>||</span><span foreground='#555ea5'>||||||||</span>",
+        "<span foreground='#23CE6B'>|||</span><span foreground='#555ea5'>|||||||</span>",
+        "<span foreground='#23CE6B'>||||</span><span foreground='#555ea5'>||||||</span>",
+        "<span foreground='#23CE6B'>|||||</span><span foreground='#555ea5'>|||||</span>",
+        "<span foreground='#23CE6B'>||||||</span><span foreground='#555ea5'>||||</span>",
+        "<span foreground='#23CE6B'>|||||||</span><span foreground='#555ea5'>|||</span>",
+        "<span foreground='#23CE6B'>||||||||</span><span foreground='#555ea5'>||</span>",
+        "<span foreground='#23CE6B'>|||||||||</span><span foreground='#555ea5'>|</span>",
+        "<span foreground='#23CE6B'>||||||||||</span>"
+      ]
+    }
+  }
+}

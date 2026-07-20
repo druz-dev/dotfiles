@@ -1,0 +1,49 @@
+* {
+    font-family: "ShureTechMono Nerd Font Mono", "Ubuntu Mono", monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #A290F1;
+}
+
+#workspaces button,
+#clock,
+#custom-slack,
+#custom-hyprsunset,
+#backlight,
+#pulseaudio,
+#battery {
+    padding: 0 15px;
+}
+
+/* Collapse the Slack module entirely when there are no notifications. */
+#custom-slack.none {
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces button {
+    color: #A290F1;
+    padding: 0 2px;
+    font-size: 13px;
+}
+
+#workspaces button.empty {
+    color: #555ea5;
+}
+
+#workspaces button.active,
+#workspaces button.visible {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    background-color: #121633;
+}
