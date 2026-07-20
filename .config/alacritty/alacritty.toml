@@ -5,29 +5,38 @@ animation = "EaseOut"
 color = "#7555FF"
 duration = 300
 
+# Ported from kitty.conf (Oliver's purple scheme)
 [colors.bright]
-black = "0x444b6a"
-blue = "0x7da6ff"
-cyan = "0x0db9d7"
-green = "0xb9f27c"
-magenta = "0xbb9af7"
-red = "0xff7a93"
-white = "0xacb0d0"
-yellow = "0xff9e64"
+black = "0x555ea5"
+blue = "0x1166cc"
+cyan = "0x11dddd"
+green = "0x23ce6b"
+magenta = "0x60ffcc"
+red = "0xff0033"
+white = "0x839496"
+yellow = "0xd4d4ff"
 
 [colors.normal]
-black = "0x32344a"
-blue = "0x7aa2f7"
-cyan = "0x449dab"
-green = "0x9ece6a"
-magenta = "0xad8ee6"
-red = "0xf7768e"
-white = "0x9699a8"
-yellow = "0xe0af68"
+black = "0x121633"
+blue = "0x4488ee"
+cyan = "0x22ccff"
+green = "0x23ce6b"
+magenta = "0x8877dd"
+red = "0xff0033"
+white = "0xddd4ff"
+yellow = "0xffcf00"
 
 [colors.primary]
-background = "0x1B1f3B"
-foreground = "0xa9b1d6"
+background = "0x000000"
+foreground = "0xa290f1"
+
+[colors.cursor]
+cursor = "0x3388cc"
+text = "CellBackground"
+
+[colors.selection]
+background = "0xa290f1"
+text = "0x1b1f3b"
 
 [cursor]
 blink_timeout = 0
@@ -91,7 +100,7 @@ family = "ShureTechMono Nerd Font"
 # foreground = "0xa9b1d6"
 # 
 [window]
-opacity = 0.5
+opacity = 0.60
 
 [window.padding]
 x = 0
