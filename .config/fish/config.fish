@@ -1,10 +1,16 @@
 if status is-interactive
+    # Every terminal gets its own disposable tmux session (reaped on close,
+    # see destroy-unattached in ~/.tmux.conf). prefix+d to keep one alive.
+    if not set -q TMUX; and not set -q NVIM; and command -q tmux; and test "$TERM" != dumb
+        exec tmux new-session -s term-$fish_pid
+    end
+
     # Commands to run in interactive sessions can go here
     alias ls=exa
     alias gsu="git submodule update --recursive --init"
     alias mux=tmuxinator
     alias ta="tmux a"
-    alias tn="tmux new-session -s"
+    # tn is a function now (functions/tn.fish) — works from inside tmux too
     alias lg="lazygit"
     alias oc="opencode"
     alias vim="nvim"
