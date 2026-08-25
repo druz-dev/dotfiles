@@ -1,0 +1,70 @@
+# ~/.config/feh/themes — named option groups for feh
+#
+# Usage:  feh -T <theme> <files>
+# The theme named literally "feh" is applied to EVERY bare `feh` call,
+# so it acts as your default config. CLI flags always override themes.
+#
+# Syntax rules that bite (see `man feh`, "THEMES CONFIG SYNTAX"):
+#   * No ~ or glob expansion — absolute paths only.
+#   * A trailing "#comment" is NOT stripped, so "#1e1e2e" is safe to use.
+#   * Quoting IS respected; one option+argument pair must stay on one line.
+#   * Themes do NOT inherit from each other, hence the repetition below.
+#
+# Machine-specific notes:
+#   * imlib2 here is 1.12.1, which already auto-applies EXIF orientation,
+#     so --auto-rotate is deliberately omitted (obsolete since 1.7.5).
+#   * feh is X11-only and runs under XWayland on Hyprland. It CANNOT set
+#     the Hyprland wallpaper — hyprpaper owns that — so --no-fehbg keeps
+#     feh from littering ~/.fehbg.
+#   * --info EXECUTES a shell command, so it uses `echo`, and %N
+#     (shell-escaped name) rather than %n so quotes in filenames are safe.
+#     In --title, %n is correct because no shell is involved.
+
+# ── DEFAULT: every bare `feh` / `feh shot.png` ───────────────────────────
+# --scale-down is the big one: a 6000px screenshot opens as a sane window
+# instead of a window larger than the monitor.
+# Info line is hidden by default (the ";" flag) — press "i" to toggle it.
+feh --scale-down --sort filename --version-sort \
+    --image-bg "#1e1e2e" --draw-tinted \
+    --fontpath /home/ota/.config/feh/fonts \
+    --font JetBrainsMonoNerdFont-Regular/11 \
+    --title "feh · %n · %wx%h · %u/%l" \
+    --info ";echo %N · %wx%h · %S · %t · %u/%l · %z%%" \
+    --cache-size 256 --conversion-timeout 3 --no-fehbg
+
+# ── fs: distraction-free fullscreen viewing ──────────────────────────────
+# --auto-zoom only does anything in fullscreen/fixed-geometry mode, which
+# is exactly here. Black background so nothing competes with the image.
+fs --fullscreen --auto-zoom --hide-pointer \
+   --sort filename --version-sort --image-bg black --draw-tinted \
+   --fontpath /home/ota/.config/feh/fonts \
+   --font JetBrainsMonoNerdFont-Regular/12 \
+   --info ";echo %N · %wx%h · %S · %u/%l" \
+   --cache-size 512 --conversion-timeout 3 --no-fehbg
+
+# ── th: clickable thumbnail browser (great for a screenshots dir) ────────
+th --thumbnails --thumb-width 220 --thumb-height 220 \
+   --index-info "%n\n%wx%h · %S" \
+   --limit-width 1800 --sort filename --version-sort \
+   --image-bg "#1e1e2e" --draw-tinted \
+   --fontpath /home/ota/.config/feh/fonts \
+   --font JetBrainsMonoNerdFont-Regular/10 \
+   --title "feh thumbs · %l images" \
+   --cache-size 512 --conversion-timeout 3 --no-fehbg
+
+# ── sl: fullscreen slideshow, 5s per image ──────────────────────────────
+# Pair with the Hyprland idleinhibit rule so the screen won't lock mid-run.
+sl --fullscreen --auto-zoom --hide-pointer --slideshow-delay 5 \
+   --sort filename --version-sort --image-bg black --no-fehbg \
+   --cache-size 512 --conversion-timeout 3
+
+# ── px: pixel-exact 1:1 inspection, no scaling at all ───────────────────
+# For checking screenshots/renders where scaling would lie to you.
+# Pan with h/j/k/l or drag; "/" refits, "*" returns to 100%.
+px --zoom 100 --image-bg "#1e1e2e" --draw-tinted \
+   --sort filename --version-sort \
+   --fontpath /home/ota/.config/feh/fonts \
+   --font JetBrainsMonoNerdFont-Regular/11 \
+   --title "feh 1:1 · %n · %wx%h" \
+   --info "echo %N · %wx%h · %S · zoom %z%%" \
+   --cache-size 256 --conversion-timeout 3 --no-fehbg

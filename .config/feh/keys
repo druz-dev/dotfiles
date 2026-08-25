@@ -1,0 +1,36 @@
+# ~/.config/feh/keys -- key bindings
+#
+# Format:  action [key1 [key2 [key3]]]     (max 3 keys per action)
+# Keys are X11 keysyms (see xev). Modifiers: C=Ctrl, S=Shift, 1=Alt, 4=Super.
+# An action listed with NO keys is unbound.
+#
+# feh does not detect conflicting bindings -- it just behaves unpredictably,
+# so every default key stolen below is explicitly re-homed.
+#
+# NOTE: keep this file plain ASCII and lines short. feh's keys/buttons
+# parser reads into a small fixed buffer; long lines (especially with
+# multi-byte characters) get split and the fragments are then parsed as
+# bogus actions. The themes file has a bigger buffer and tolerates UTF-8.
+
+# --- vim-style panning ---
+# h/j/k/l pan the image; Ctrl+arrows still work as before.
+# Panning skips anti-aliasing for speed -- press R to re-render sharply.
+scroll_left     h C-Left
+scroll_down     j C-Down
+scroll_up       k C-Up
+scroll_right    l C-Right
+
+# --- defaults displaced by the panning keys above ---
+toggle_pause    P
+toggle_keep_vp  K
+
+# --- zoom on keys you'd actually reach for ---
+# "=" and "+" zoom in, "-" zooms out. Up/Down keep their default zoom role.
+# "/" fits to window and "*" returns to 100% (feh defaults, kept as-is).
+zoom_in         equal plus Up
+zoom_out        minus Down
+
+# Reclaim +/- from the slideshow reload-delay controls, which are
+# near-useless for still images and were sitting on those keys.
+reload_plus
+reload_minus

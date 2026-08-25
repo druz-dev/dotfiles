@@ -1,0 +1,28 @@
+# ~/.config/feh/buttons -- mouse bindings
+#
+# Format:  action [binding]   where binding is a button number, optionally
+# with modifiers (C=Ctrl, S=Shift, 1=Alt, 4=Super), e.g. "C-1".
+# An action listed with NO button is unbound.
+#
+# Button numbers: 1 left, 2 middle, 3 right, 4 wheel up, 5 wheel down.
+#
+# NOTE: keep this file plain ASCII and lines short -- see the note in
+# ~/.config/feh/keys about feh's small parser buffer.
+
+# --- wheel zooms, Shift+wheel changes image ---
+# feh's default is wheel=next/prev image, which fights muscle memory from
+# every other image viewer and browser. Zoom-on-wheel is the nicer default;
+# image navigation moves to Shift+wheel.
+# If zoom feels inverted on your mouse, swap the 4 and 5 below.
+zoom_in         4
+zoom_out        5
+prev_img        S-4
+next_img        S-5
+
+# --- kept as-is, listed so the intent is explicit ---
+pan             1
+zoom            2
+toggle_menu     3
+
+# --- unbound: Ctrl+left-drag blurring the image is only ever an accident ---
+blur
