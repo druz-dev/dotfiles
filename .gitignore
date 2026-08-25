@@ -11,3 +11,6 @@ lazy-lock.json
 
 # Local secrets (tokens/keys) — never commit
 .config/fish/conf.d/secrets.fish
+
+# Work-machine only: internal licence server / toolchain paths
+.config/fish/conf.d/fpga.fish
