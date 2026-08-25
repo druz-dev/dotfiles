@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Lock the screen with a *live* blurred backdrop instead of hyprlock's frozen one.
+#
+# hyprlock takes exactly one screencopy frame, before it maps its own surface, so
+# `path = screenshot` is a still for the whole lock — and re-shooting it (reload_cmd
+# + grim) would capture the lock screen itself, blurring the blur. So let the
+# compositor do the work instead:
+#
+#   misc:session_lock_xray   keeps the workspaces rendering below the lock surface
+#   hyprlock-blur            a transparent fullscreen overlay layer over them, which
+#                            `layerrule { blur = true }` re-blurs every frame
+#   hyprlock                 draws on top of both, so its widgets stay sharp
+#
+# Both are undone on the way out, so a bare `hyprlock` — or this script dying —
+# leaves you with the stock, opaque lock screen rather than a see-through one.
+set -uo pipefail
+
+blur_pid=
+
+restore() {
+    hyprctl keyword misc:session_lock_xray false >/dev/null
+    [[ -n $blur_pid ]] && kill "$blur_pid" 2>/dev/null
+}
+trap restore EXIT INT TERM HUP
+
+hyprlock-blur &
+blur_pid=$!
+
+# Don't hand over to hyprlock until the blur layer is actually up, or the first
+# frames of the lock show a sharp desktop.
+for _ in {1..50}; do
+    hyprctl layers | grep -q 'namespace: lockblur' && break
+    sleep 0.02
+done
+
+hyprctl keyword misc:session_lock_xray true >/dev/null
+
+hyprlock "$@"
