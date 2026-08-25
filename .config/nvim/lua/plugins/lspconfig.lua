@@ -5,7 +5,7 @@ return {
       clangd = {
         cmd = {
           "clangd",
-          "--query-driver=**/aarch64-appear-linux-g++",
+          "--query-driver=**/aarch64-appear-linux-*",
           "--clang-tidy",
         },
         autostart = true,
